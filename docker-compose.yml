@@ -1,0 +1,20 @@
+version: "3"
+services:
+    api:
+        container_name: rocapi
+        build:
+            context: ./back
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+        volumes:
+            - ./back:work/back
+    web:
+        container_name: rocweb
+        build:
+            context: ./front
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
+        volumes:
+            - ./front:work/front
